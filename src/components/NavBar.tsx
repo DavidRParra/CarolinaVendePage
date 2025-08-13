@@ -16,12 +16,12 @@ function NavBar(){
         <div className="mx-auto bg-white/80 lg:rounded-4xl lg:w-[80%] lg:fixed top-0 right-0 left-0 z-40 mt-[2rem]">
             <nav className="flex flex-col items-center justify-evenly py-3 lg:flex-row lg:mx-[auto]">
                 <Link href="/" className="flex flex-col items-center text-[2rem] gap-[1rem] lg:flex-row lg:text-[3rem]">
-                    <Image 
-                        src='/CarolinaVende.jpg' 
-                        alt="CarolinaVende" 
-                        width={300} 
+                    <Image
+                        src='/Carolina_Vende_Foto.png'
+                        alt="CarolinaVende"
+                        width={300}
                         height={300}
-                        className="rounded-full w-[8rem] lg:w-[8rem]"
+                        className="w-[10rem] lg:w-[10rem]"
                     />
                     <h1 className="font-semibold"> CarolinaVende</h1>
                 </Link>
@@ -70,7 +70,7 @@ function NavBar(){
                             </Link>
                         </li>
 
-                        <div className="w-[.2rem] h-[2rem] bg-[#75512f]"/>
+                        <div className="lg:w-[.2rem] lg:h-[2rem] lg:bg-[#75512f]"/>
 
                         <li>
                             <Link 
@@ -107,7 +107,7 @@ function NavBar(){
                             </Link>
                         </li>
 
-                        <div className="w-[.2rem] h-[2rem] bg-[#75512f]"/>
+                        <div className="lg:w-[.2rem] lg:h-[2rem] lg:bg-[#75512f]"/>
 
                         <li>
                             <Link 
@@ -145,7 +145,7 @@ function NavBar(){
                             </Link>
                         </li>
 
-                        <div className="w-[.2rem] h-[2rem] bg-[#75512f]"/>
+                        <div className="lg:w-[.2rem] lg:h-[2rem] lg:bg-[#75512f]"/>
 
                         <li>
                             <Link 
