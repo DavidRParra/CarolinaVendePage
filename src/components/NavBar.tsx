@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineMenu, HiPhone } from "react-icons/hi"
+import { ChevronDownIcon, PhoneIcon } from "@heroicons/react/20/solid";
 import React, {useState} from "react";
 
 function NavBar(){
@@ -33,7 +34,7 @@ function NavBar(){
                 </div>
 
                 <div className={`flex flex-col w-full items-center gap-[2rem] lg:gap-0 lg justify-between lg:flex lg:flex-row lg:w-[50%] ${isOpen ? 'block' : 'hidden'}`}>
-                    <ul className="flex flex-col text-center text-[1.5rem] gap-3 lg:flex-row">
+                    <ul className="flex flex-col items-center text-center text-[1.5rem] gap-3 lg:flex-row">
                         <li>
                             <Link 
                                 onClick={pressButtonMenu}
@@ -72,39 +73,21 @@ function NavBar(){
 
                         <div className="lg:w-[.2rem] lg:h-[2rem] lg:bg-[#75512f]"/>
 
-                        <li>
-                            <Link 
-                                onClick={pressButtonMenu}
-                                href="#" 
-                                className="
-                                    relative
-                                    text-2xl
-                                    font-semibold
-                                    py-2
-                                    transition-colors duration-300
-                                    lg:hover:text-[#75512f]
-                                    group
-                                "
-                            >
-                                Propiedades
-
-                                <span 
-                                    className="
-                                        absolute
-                                        bottom-0
-                                        left-0
-                                        right-0
-                                        h-[2px]
-                                        bg-[#75512f]
-                                        transform
-                                        scale-x-0
-                                        group-hover:scale-x-100
-                                        transition-transform
-                                        duration-300
-                                        origin-center
-                                    "
-                                    />
+                        <li className="relative group">
+                            <Link href="#" className="flex items-center hover:text-[#75512f] font-bold">
+                            Inmuebles
+                            <ChevronDownIcon className="hidden h-[2rem] w-[2rem] transform group-hover:rotate-180 transition-transform duration-450 lg:block" />
                             </Link>
+
+                            <ul className="lg:absolute lg:hidden group-hover:block bg-gray-100 left-0 top-9 w-[35rem] rounded-lg z-10">
+                                <Link href="#" ><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2 rounded-lg">Casas</li></Link>
+                                <Link href="#" ><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2 rounded-lg">Apartamentos</li></Link>
+                                <Link href="#" ><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2 rounded-lg">Edificios</li></Link>
+                                {/*<Link href="#" ><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2 rounded-lg">Turistico</li></Link>*/}
+                                <Link href="#" ><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2 rounded-lg">Solares</li></Link>
+                                <Link href="#" ><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2 rounded-lg">Fincas</li></Link>
+
+                            </ul>
                         </li>
 
                         <div className="lg:w-[.2rem] lg:h-[2rem] lg:bg-[#75512f]"/>

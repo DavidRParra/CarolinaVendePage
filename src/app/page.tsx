@@ -31,6 +31,7 @@ export default function Home() {
   const ciudades = 
     ["La Vega",
     "Santiago",
+    "Puerto Plata",
     "Puntacana",
     "Santo Domingo",
     "Bavaro"];
@@ -358,7 +359,7 @@ export default function Home() {
                 </div>
                 <Link 
                   href="#" 
-                  className="flex w-[95%] rounded-lg text-[1.2rem] text-white justify-center p-2 bg-blue-700 hover:bg-blue-900"
+                  className="flex w-[95%] rounded-lg text-[1.2rem] text-white justify-center p-2 bg-[#75512f] hover:bg-[#5c3f25]"
                 >
                   Ver Propiedad
                 </Link>
@@ -388,9 +389,9 @@ export default function Home() {
                 <div className="flex gap-[2vh] text-[2rem]">
                   <span>
                     <p>{testimonial.Nombre}</p>
-                    <div className="h-[.3rem] w-[40%] bg-blue-700" />
+                    <div className="h-[.3rem] w-[40%] bg-[#75512f]" />
                   </span>
-                  <span className="text-blue-700 font-semibold">{testimonial.Operacion}</span>
+                  <span className="text-[#75512f] font-semibold">{testimonial.Operacion}</span>
                 </div>
               </div>
 
@@ -405,6 +406,9 @@ export default function Home() {
           ))}
         
       </section>
+      <p className="flex items-center justify-center my-0 bg-[#75512f] text-[1.2rem] text-white h-[3rem] mt-[2rem]">
+                &copy; 2025 Derechos reservados | DRTechGroup, SRL | Creado por DRTechGroup
+            </p>
     </div>
   );
 }
