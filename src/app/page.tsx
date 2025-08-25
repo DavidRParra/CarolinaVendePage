@@ -153,7 +153,7 @@ export default function Home() {
       {/*Encabezado con el search*/}
       <div 
         className="top-0 left-0 right-0 z-[-1] h-[100vh] bg-cover bg-center  flex  flex-col gap-[3rem] items-center justify-center lg:justify-end" 
-        style={{backgroundImage : `url('/bg_pueba.jpg')`}}
+        style={{backgroundImage : `url('/Background.jpg')`}}
       >
         <div className="flex flex-col w-[50%] gap-[3rem]  items-center justify-center text-black text-[2rem] p-[2rem] lg:mb-[5%]">
           <div className="flex flex-col bg-[#d3bc93]/70 w-full rounded-4xl gap-5  items-center justify-center text-[2rem] pb-[1.2rem] ">
