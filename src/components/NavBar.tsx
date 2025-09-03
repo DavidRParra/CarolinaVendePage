@@ -79,7 +79,7 @@ function NavBar(){
                             <ChevronDownIcon className="hidden h-[2rem] w-[2rem] transform group-hover:rotate-180 transition-transform duration-450 lg:block" />
                             </Link>
 
-                            <ul className="lg:absolute lg:hidden group-hover:block bg-gray-100 left-0 top-9 w-[35rem] rounded-lg z-10">
+                            <ul className="lg:absolute lg:hidden group-hover:block bg-gray-100 left-0 top-9 rounded-lg z-10">
                                 <Link href="#" ><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2 rounded-lg">Casas</li></Link>
                                 <Link href="#" ><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2 rounded-lg">Apartamentos</li></Link>
                                 <Link href="#" ><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2 rounded-lg">Edificios</li></Link>
@@ -95,7 +95,7 @@ function NavBar(){
                         <li>
                             <Link 
                                 onClick={pressButtonMenu}
-                                href="#" 
+                                href="/nosotros" 
                                 className="
                                     relative
                                     text-2xl
@@ -133,7 +133,7 @@ function NavBar(){
                         <li>
                             <Link 
                                 onClick={pressButtonMenu}
-                                href="#" 
+                                href="/contactanos" 
                                 className="
                                     relative
                                     text-2xl

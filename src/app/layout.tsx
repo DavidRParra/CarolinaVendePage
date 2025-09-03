@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import {Roboto } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
+import SocialMedia from "@/components/SocialMedia";
+
 
 const fuente = Roboto({
   style: ["normal"],
@@ -28,6 +30,8 @@ export default function RootLayout({
         <NavBar/>
 
         {children}
+
+        <SocialMedia/>
       </body>
     </html>
   );

@@ -169,7 +169,7 @@ export default function Home() {
 
                 <select name="city" id="city" className="bg-[#75512f] p-1 rounded-lg">
                   {ciudades.map((ciudad) => (
-                    <option key={ciudad} value={ciudad}>
+                    <option key={ciudad} value={ciudad} className="bg-white hover:bg-[#75512f]">
                       {ciudad}
                     </option>
                   ))}
@@ -247,41 +247,6 @@ export default function Home() {
 
                   
           </Link>
-
-          <div className="flex flex-row gap-1 w-[165%] mt-[5rem] mb-[-5rem] items-end justify-end">
-            <Link href="https://www.instagram.com/carolinavende/" target="_blank">
-              <Image
-                src="/instagram.png" 
-                alt="Smith" 
-                width={300} 
-                height={300}
-                className="rounded-lg w-[3rem]"
-              
-              />
-            </Link>
-
-            <Link href="https://www.facebook.com/carolinavende/" target="_blank">
-              <Image
-                src="/facebook.png" 
-                alt="Smith" 
-                width={300} 
-                height={300}
-                className="rounded-lg w-[3rem]"
-              
-              />
-            </Link>
-
-            <Link href="/" target="_blank">
-              <Image
-                src="/linkedin.png" 
-                alt="Smith" 
-                width={300} 
-                height={300}
-                className="rounded-lg w-[3rem]"
-              
-              />
-            </Link>
-          </div>
           
         </div>
 
