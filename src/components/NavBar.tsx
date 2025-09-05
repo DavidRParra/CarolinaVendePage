@@ -16,16 +16,7 @@ function NavBar(){
     return (
         <div className="mx-auto bg-white/80 lg:rounded-4xl lg:w-[80%] lg:fixed top-0 right-0 left-0 z-40 mt-[2rem]">
             <nav className="flex flex-col items-center justify-evenly py-3 lg:flex-row lg:mx-[auto]">
-                <Link href="/" className="flex flex-col items-center text-[2rem] gap-[1rem] lg:flex-row lg:text-[3rem]">
-                    <Image
-                        src='/Carolina_Vende_Foto.png'
-                        alt="CarolinaVende"
-                        width={300}
-                        height={300}
-                        className="w-[10rem] lg:w-[10rem]"
-                    />
-                    <h1 className="font-semibold"> CarolinaVende</h1>
-                </Link>
+                
 
                 <div className="lg:hidden">
                     <button onClick={pressButtonMenu} className=" focus:outline-none">
@@ -34,6 +25,12 @@ function NavBar(){
                 </div>
 
                 <div className={`flex flex-col w-full items-center gap-[2rem] lg:gap-0 lg justify-between lg:flex lg:flex-row lg:w-[50%] ${isOpen ? 'block' : 'hidden'}`}>
+
+                    <div className="text-[1.2rem] hover:cursor-default">
+                        <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.5rem] h-[1.5rem] text-black"/> (809) 849-7680</p>
+                        <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.5rem] h-[1.5rem] text-black"/> (809) 705-7318</p>
+                    </div>
+
                     <ul className="flex flex-col items-center text-center text-[1.5rem] gap-3 lg:flex-row">
                         <li>
                             <Link 
@@ -167,11 +164,20 @@ function NavBar(){
                         </li>
                     </ul>
 
-                    <div className="text-[1.2rem] hover:cursor-default">
-                        <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.5rem] h-[1.5rem] text-black"/> (809) 849-7680</p>
-                        <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.5rem] h-[1.5rem] text-black"/> (809) 705-7318</p>
-                    </div>
+                    
                 </div>
+
+                <Link href="/" className="flex flex-col items-center text-[2rem] gap-[1rem] lg:flex-row lg:text-[3rem]">
+                    <Image
+                        src='/Carolina_Vende_Foto.png'
+                        alt="CarolinaVende"
+                        width={300}
+                        height={300}
+                        className="w-[10rem] lg:w-[10rem]"
+                    />
+                    <h1 className="font-semibold text-red-700"> CarolinaVende</h1>
+                </Link>
+
             </nav>
         </div>
     );

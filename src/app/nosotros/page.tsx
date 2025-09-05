@@ -26,7 +26,7 @@ function NosotrosPage(){
                     </h2>
 
                     <p className="font-bold">
-                        Soy Milagros González, pero en el mundo inmobiliario me conocen como <b className="font-black text-[#55381d] text-5xl">&quot;Carolina Vende&quot;</b>. Soy dominicana y, durante más de 45 años, me he dedicado con pasión a las ventas y el asesoramiento en este sector. Mi misión es guiar a cada cliente, brindándoles la mejor orientación para que logren su inversión ideal o encuentren el hogar perfecto que han soñado. 
+                        Soy Milagros González, pero en el mundo inmobiliario me conocen como <b className="font-black text-red-500 text-5xl">&quot;Carolina Vende&quot;</b>. Soy dominicana y, durante más de 45 años, me he dedicado con pasión a las ventas y el asesoramiento en este sector. Mi misión es guiar a cada cliente, brindándoles la mejor orientación para que logren su inversión ideal o encuentren el hogar perfecto que han soñado. 
                     </p>
                 </div>
 
