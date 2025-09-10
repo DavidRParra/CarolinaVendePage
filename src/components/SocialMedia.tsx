@@ -35,7 +35,7 @@ function SocialMedia() {
             </Link>
 
             <Link 
-                href={"#"} 
+                href={"https://wa.me/18098497680"} 
                 className="
                     flex justify-center items-center
                     bg-white text-[#75512f] text-[2rem]

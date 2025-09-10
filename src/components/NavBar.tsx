@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { HiOutlineMenu, HiPhone } from "react-icons/hi"
-import { ChevronDownIcon, PhoneIcon } from "@heroicons/react/20/solid";
+import { HiOutlineMenu, HiPhone, HiMail } from "react-icons/hi"
+import { ChevronDownIcon,  } from "@heroicons/react/20/solid";
 import React, {useState} from "react";
 
 function NavBar(){
@@ -26,9 +26,16 @@ function NavBar(){
 
                 <div className={`flex flex-col w-full items-center gap-[2rem] lg:gap-0 lg justify-between lg:flex lg:flex-row lg:w-[50%] ${isOpen ? 'block' : 'hidden'}`}>
 
-                    <div className="text-[1.2rem] hover:cursor-default">
-                        <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.5rem] h-[1.5rem] text-black"/> (809) 849-7680</p>
-                        <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.5rem] h-[1.5rem] text-black"/> (809) 705-7318</p>
+                    <div className="lg:flex-row text-[1.2rem] lg:gap-10 flex flex-col items-center">
+                        <div>
+                            <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.5rem] h-[1.5rem] text-black"/> (809) 849-7680</p>
+                            <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.5rem] h-[1.5rem] text-black"/> (809) 705-7318</p>
+                        </div>
+
+                        <div className="flex items-center text-[1.8rem]">
+                            <HiMail className="h-[3rem] w-[3rem]"/>
+                            <p>carolinavende@gmail.com</p>
+                        </div>
                     </div>
 
                     <ul className="flex flex-col items-center text-center text-[1.5rem] gap-3 lg:flex-row">
