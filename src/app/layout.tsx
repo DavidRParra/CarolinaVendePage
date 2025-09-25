@@ -28,8 +28,9 @@ export default function RootLayout({
       >
         
         <NavBar/>
-
+        
         {children}
+        
 
         <SocialMedia/>
       </body>

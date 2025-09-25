@@ -4,7 +4,7 @@ import ScaleIn from "@/components/ScaleIn";
 function CitasPage() {
     return (
         <ScaleIn>
-            <div className="flex flex-col flex-grow items-center gap-10 justify-center p-4 text-[2rem] h-[80vh]">
+            <div className="flex flex-col flex-grow items-center gap-10 justify-center p-4 text-[2rem] h-[80vh] lg:mt-[15rem] ">
                 <h2 className="text-[5rem] flex font-bold text-[#75512f]">
                     Vamos a personalizar tus opciones de cita
                 </h2>
@@ -38,7 +38,7 @@ function CitasPage() {
                         </div>
 
                         <div className="flex flex-col">
-                            <label htmlFor="nombre">Fecha de la cita*</label>
+                            <label htmlFor="nombre">Tipo de cita*</label>
 
                             <select name="tipo-consulta" id="tipo-consulta" className="flex border rounded-full py-1 px-6 text-black" required>
                                 <option value="default" hidden>--Sleccione una opcion--</option>

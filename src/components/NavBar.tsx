@@ -14,7 +14,7 @@ function NavBar(){
     }
 
     return (
-        <div className="mx-auto bg-white/80 lg:rounded-4xl lg:w-[80%] lg:fixed top-0 right-0 left-0 z-40 mt-[2rem]">
+        <div className="mx-auto bg-white/80 lg:rounded-4xl lg:w-[80%] lg:fixed top-0 right-0 left-0 z-40 mt-[2rem] border border-[#75512f] shadow-lg">
             <nav className="flex flex-col items-center justify-evenly py-3 lg:flex-row lg:mx-[auto]">
                 
 
