@@ -23,7 +23,7 @@ function SocialMedia() {
             <Link 
                 href={"https://www.facebook.com/carolinavende/"} 
                 className="
-                    flex justify-center items-center
+                    flex justify-center items-center 
                     bg-white text-[#75512f] text-[2rem]
                     w-16 h-16 
                     p-3 rounded-full shadow-lg 
