@@ -174,7 +174,7 @@ function NavBar(){
                     
                 </div>
 
-                <Link href="/" className="flex flex-col items-center text-[2rem] gap-[1rem] lg:flex-row lg:text-[3rem]">
+                <Link href="/" className="flex flex-col items-center text-[2rem] gap-[1rem] lg:flex-row lg:text-[3rem] group">
                     <Image
                         src='/Carolina_Vende_Foto.png'
                         alt="CarolinaVende"
@@ -183,6 +183,18 @@ function NavBar(){
                         className="w-[10rem] lg:w-[10rem]"
                     />
                     <h1 className="font-semibold text-red-700"> CarolinaVende</h1>
+
+                    <div className="w-[70rem] absolute flex flex-col top-40 right-0 scale-0 group-hover:block group-hover:scale-100 z-90 bg-[#75512f] rounded-4xl px-[6rem] py-[3rem]">
+                        <div
+                            style={{backgroundImage : "url('/Carolina_Vende_Profile.png')"}}
+                            className="w-[45rem] h-[30rem] bg-no-repeat bg-cover mx-auto"
+                        />
+
+                        <p className="mt-[1.2rem] text-[2.5rem] text-center text-white font-bold">Inmobiliaria y constructora dedicada al desarrollo y venta de proyecto de bajo costo.</p>
+
+                        <p className="mt-[1.2rem] text-[1.6rem] text-center text-white ">Soy Milagros González, pero en el mundo inmobiliario me conocen como "Carolina Vende". Soy dominicana y, durante más de 45 años, me he dedicado con pasión a las ventas y el asesoramiento en este sector. Mi misión es guiar a cada cliente, brindándoles la mejor orientación para que logren su inversión ideal o encuentren el hogar perfecto que han soñado.</p>
+
+                    </div>
                 </Link>
 
             </nav>
