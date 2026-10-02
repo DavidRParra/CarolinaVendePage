@@ -7,34 +7,34 @@ import { FaBed, FaBath, FaBuilding, FaLocationArrow } from "react-icons/fa";
 
 interface propiedadesVIP {
   ID: number;
-  Nombre: string,
-  Description: string,
-  tipo: string,
-  precio: number,
-  ciudad: string,
-  Habitaciones: string
-  Bathrooms: string
-  img: string
+  Nombre: string;
+  Description: string;
+  tipo: string;
+  precio: number;
+  ciudad: string;
+  Habitaciones: string;
+  Bathrooms: string;
+  img: string;
 }
 
 interface testimoniales {
-  ID: number,
-  Nombre: string,
-  Opinion: string,
-  Operacion: string,
-  img: string
+  ID: number;
+  Nombre: string;
+  Opinion: string;
+  Operacion: string;
+  img: string;
 }
-
 
 export default function Home() {
 
-  const ciudades = 
-    ["La Vega",
+  const ciudades = [
+    "La Vega",
     "Santiago",
     "Puerto Plata",
     "Puntacana",
     "Santo Domingo",
-    "Bavaro"];
+    "Bavaro"
+  ];
 
   const tipos = [
     "Casa",
@@ -144,236 +144,187 @@ export default function Home() {
     }
   ];
 
-  const print = () => {
-    console.log("Buscando...")
+  const print = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Buscando...");
   }
   
   return (
-    <div>
-      {/*Encabezado con el search*/}
+    <div className="overflow-x-hidden">
+      {/* Encabezado con el search */}
       <div 
-        className="top-0 left-0 right-0 z-[-1] h-[100vh] bg-cover bg-center  flex  flex-col gap-[3rem] items-center justify-center lg:justify-end" 
-        style={{backgroundImage : `url('/Background.jpg')`}}
+        className="relative w-full min-h-screen bg-cover bg-center flex flex-col items-center justify-center px-4 pt-28 pb-12" 
+        style={{ backgroundImage: `url('/Background.jpg')` }}
       >
-        <div className="flex flex-col w-[50%] gap-[3rem]  items-center justify-center text-black text-[2rem] p-[2rem] lg:mb-[5%]">
-          <div className="flex flex-col bg-[#d3bc93]/70 w-full rounded-4xl gap-5  items-center justify-center text-[2rem] pb-[1.2rem] ">
-            <div className="flex flex-col text-[3rem] font-bold text-center">
-              <h2>Encuentra la casa de tus sueños</h2>
-              <p className="text-[1.5rem] font-semibold">Casas, departamento y demas en Bienes Raices en venta.</p>
+        <div className="flex flex-col w-full max-w-5xl gap-6 items-center justify-center text-black p-4 md:p-8">
+          <div className="flex flex-col bg-[#d3bc93]/95 backdrop-blur-sm w-full rounded-3xl p-6 md:p-10 gap-6 items-center justify-center shadow-xl">
+            <div className="flex flex-col text-center gap-2">
+              <h2 className="text-3xl md:text-5xl font-bold">Encuentra la casa de tus sueños</h2>
+              <p className="text-lg md:text-2xl font-medium text-gray-800">Casas, apartamentos y más en Bienes Raíces en venta.</p>
             </div>
 
-            <form action="" className="flex flex-col items-center justify-center w-full gap-4  lg:flex-row font-semibold">
-
-              <div className="flex flex-row gap-2 ">
-                <label htmlFor="city" className="hidden lg:block">Ciudad:</label>
-
-                <select name="city" id="city" className="bg-[#75512f] p-1 rounded-lg">
+            <form onSubmit={print} className="flex flex-col lg:flex-row items-center justify-center w-full gap-4 font-semibold text-base md:text-lg">
+              <div className="flex flex-col sm:flex-row items-center gap-2 w-full lg:w-auto">
+                <label htmlFor="city" className="lg:block">Ciudad:</label>
+                <select name="city" id="city" className="bg-[#75512f] text-white p-3 rounded-lg w-full sm:w-auto text-base">
                   {ciudades.map((ciudad) => (
-                    <option key={ciudad} value={ciudad} className="bg-white hover:bg-[#75512f]">
+                    <option key={ciudad} value={ciudad} className="bg-white text-black">
                       {ciudad}
                     </option>
                   ))}
-
                 </select>
               </div>
 
-              <div className="flex flex-row gap-2">
-                <label htmlFor="Type" className="hidden lg:block">Tipo de Propiedad:</label>
-
-                <select name="Type" id="Type" className="bg-[#75512f] p-1 rounded-lg">
-
-                  
-
+              <div className="flex flex-col sm:flex-row items-center gap-2 w-full lg:w-auto">
+                <label htmlFor="Type" className="lg:block">Tipo:</label>
+                <select name="Type" id="Type" className="bg-[#75512f] text-white p-3 rounded-lg w-full sm:w-auto text-base">
                   {tipos.map((tipo) => (
-                    <option key={tipo} value={tipo}>
+                    <option key={tipo} value={tipo} className="bg-white text-black">
                       {tipo}
                     </option>
                   ))}
-
                 </select>
               </div>
 
               <button
-                onClick={print}
-                className="px-[1rem] bg-[#75512f] rounded-lg"
+                type="submit"
+                className="w-full lg:w-auto px-8 py-3 bg-[#75512f] text-white rounded-lg hover:bg-[#5c3f25] transition-colors text-base"
               >
                 Buscar
               </button>
-
             </form>
-
           </div>
 
           <Link 
-            className="flex items-center gap-2 text-black text-[1.8rem] lg:text-[3rem] link-hover-group
-            relative
-            font-semibold
-            py-2
-            transition-colors duration-300
-            group
-            mb-[-10rem]
-            mt-[15rem]
-            "
+            className="flex items-center gap-2 text-black text-xl md:text-3xl font-bold py-2 transition-colors duration-300 group relative mt-4"
             href="#"
           >
-                  <span className="flex items-center">
-                    Ver Propiedades
-
-                    <HiArrowRight 
-                      className="
-                        w-[3rem] h-[3rem]
-                        transform
-                        arrow-icon
-                      "
-                    />
-                  </span>
-
-                  <span 
-                    className="
-                        absolute
-                        bottom-0
-                        left-0
-                        right-0
-                        h-[2px]
-                        bg-[#75512f]
-                        transform
-                        scale-x-0
-                        group-hover:scale-x-100
-                        transition-transform
-                        duration-300
-                        origin-center
-                    "
-                  />
-
-                  
+            <span className="flex items-center gap-2">
+              Ver Propiedades
+              <HiArrowRight className="w-7 h-7 transform group-hover:translate-x-1 transition-transform" />
+            </span>
+            <span className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#75512f] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
           </Link>
-          
         </div>
-
       </div>
-      {/*Final de encabezado con el Search*/}
+      {/* Final de encabezado con el Search */}
 
-      {/*Propiedades VIP*/}
-      <main className="flex flex-col w-[80%] items-center mx-[auto]">
-
-        <h2 className="text-[3rem] font-light my-[3vh] lg:my-[7vh]">
+      {/* Propiedades VIP */}
+      <main className="flex flex-col w-[90%] max-w-7xl items-center mx-auto my-16">
+        <h2 className="text-3xl md:text-5xl font-light my-8 text-center">
           Explora las mejores propiedades en venta.
         </h2>
-        <div className=" flex flex-wrap justify-center items-center gap-y-3">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full justify-items-center">
           {propiedades.map((propiedad) => (
             <div 
               key={propiedad.ID}
-              className="w-full md:w-1/2 lg:w-1/3"
+              className="flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 w-full max-w-sm justify-between"
             >
-              <Image 
-                src={propiedad.img} 
-                alt={propiedad.Nombre} 
-                width={300} 
-                height={300}
-                className="w-[95%] rounded-lg"
-              />
-              <div className="lg:h-full">
+              <div className="relative w-full h-60">
+                <Image 
+                  src={propiedad.img} 
+                  alt={propiedad.Nombre} 
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              </div>
 
-                <div className="w-[95%] text-[1.4rem] h-[10vh]">
-                  <h3
-                    className="font-semibold text-center"
-                  >
+              <div className="flex flex-col p-5 gap-4 flex-grow justify-between">
+                <div>
+                  <h3 className="font-bold text-xl text-center mb-2 text-gray-900">
                     {propiedad.Nombre}
                   </h3>
-
-                  <p>
+                  <p className="text-gray-600 text-base leading-relaxed line-clamp-3">
                     {propiedad.Description}
                   </p>
                 </div>
 
-                <div className="flex flex-col w-[95%] px-[5%] text-[1.5rem]">
-                  <div className="flex justify-evenly">
-                    <p 
-                      className="flex items-center gap-1">
-                      <FaBuilding className="w-[1.5rem] h-[1.5rem]"/>
+                <div className="flex flex-col gap-3 text-base text-gray-700 border-t pt-4">
+                  <div className="flex justify-between">
+                    <p className="flex items-center gap-2">
+                      <FaBuilding className="w-5 h-5 text-[#75512f]"/>
                       {propiedad.tipo}
                     </p>
-
-                    <p 
-                      className="flex items-center gap-1">
-                      <FaLocationArrow className="w-[1.5rem] h-[1.5rem]"/>
+                    <p className="flex items-center gap-2">
+                      <FaLocationArrow className="w-5 h-5 text-[#75512f]"/>
                       {propiedad.ciudad}
                     </p>
                   </div>
 
-
-                  <div className="flex justify-evenly">
-                    <p 
-                      className="flex items-center gap-1">
-                      <HiCash className="w-[1.5rem] h-[1.5rem]"/>
-                      {propiedad.precio}
+                  <div className="flex justify-between items-center">
+                    <p className="flex items-center gap-2 font-bold text-black text-lg">
+                      <HiCash className="w-5 h-5 text-[#75512f]"/>
+                      ${propiedad.precio.toLocaleString()}
                     </p>
-
-                    <p 
-                      className="flex items-center gap-1">
-                      <FaBed className="w-[1.5rem] h-[1.5rem]"/>
-                      {propiedad.Habitaciones}
-                    </p>
-
-                    <p 
-                      className="flex items-center gap-1">
-                      <FaBath className="w-[1.5rem] h-[1.5rem]"/>
-                      {propiedad.Bathrooms}
-                    </p>
+                    <div className="flex gap-4">
+                      <p className="flex items-center gap-1.5" title="Habitaciones">
+                        <FaBed className="w-5 h-5 text-[#75512f]"/>
+                        {propiedad.Habitaciones}
+                      </p>
+                      <p className="flex items-center gap-1.5" title="Baños">
+                        <FaBath className="w-5 h-5 text-[#75512f]"/>
+                        {propiedad.Bathrooms}
+                      </p>
+                    </div>
                   </div>
                 </div>
+
                 <Link 
                   href="#" 
-                  className="flex w-[95%] rounded-lg text-[1.2rem] text-white justify-center p-2 bg-[#75512f] hover:bg-[#5c3f25]"
+                  className="w-full rounded-xl text-base font-bold text-white text-center py-3 bg-[#75512f] hover:bg-[#5c3f25] transition-colors mt-2"
                 >
                   Ver Propiedad
                 </Link>
               </div>
-
             </div>
-
           ))}
         </div>
-
       </main>
-      {/*Final de Propiedades VIP*/}
+      {/* Final de Propiedades VIP */}
 
+      {/* Testimoniales */}
+      <section className="flex flex-col w-[90%] max-w-5xl items-center mx-auto my-20 px-4">
+        <h2 className="text-3xl md:text-5xl font-light mb-12 text-center">Lo que dicen nuestros clientes</h2>
 
-      <section className="flex flex-col w-full items-center mx-[auto] px-[5%]">
-        <h2 className="text-[3rem] font-light my-[3vh] lg:my-[7vh]">Lo que dicen nuestros clientes</h2>
-
-          
+        <div className="flex flex-col gap-10 w-full">
           {testimoniales.map((testimonial) => (
             <div 
               key={testimonial.ID}
-              className="flex text-[2.8rem] font-light w-[100%] items-center lg:h-[50rem]"
+              className="flex flex-col lg:flex-row text-xl md:text-2xl font-light w-full items-center gap-8 bg-gray-50 p-8 rounded-3xl shadow-md border border-gray-100"
             >
-              <div className="flex flex-col justify-between h-[80%] w-[70%]">
-                <p>{testimonial.Opinion}</p>
+              <div className="flex flex-col justify-between w-full lg:w-[65%] gap-6">
+                <p className="italic text-gray-700 leading-relaxed">"{testimonial.Opinion}"</p>
 
-                <div className="flex gap-[2vh] text-[2rem]">
-                  <span>
-                    <p>{testimonial.Nombre}</p>
-                    <div className="h-[.3rem] w-[40%] bg-[#75512f]" />
+                <div className="flex flex-wrap items-center justify-between gap-4 text-lg mt-2">
+                  <div>
+                    <p className="font-bold text-black">{testimonial.Nombre}</p>
+                    <div className="h-[3px] w-16 bg-[#75512f] mt-1.5" />
+                  </div>
+                  <span className="text-[#75512f] font-semibold bg-[#d3bc93]/30 px-4 py-1.5 rounded-full text-base">
+                    {testimonial.Operacion}
                   </span>
-                  <span className="text-[#75512f] font-semibold">{testimonial.Operacion}</span>
                 </div>
               </div>
 
-              <Image 
-                src={testimonial.img} 
-                alt="Smith" 
-                width={300} 
-                height={300}
-                className="rounded-lg lg:w-[50rem]"
-              />
+              <div className="relative w-full lg:w-[35%] h-56 lg:h-48 rounded-xl overflow-hidden flex-shrink-0 shadow-sm">
+                <Image 
+                  src={testimonial.img} 
+                  alt={testimonial.Nombre} 
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           ))}
-        
+        </div>
       </section>
-      <p className="flex items-center justify-center my-0 bg-[#75512f] text-[1.2rem] text-white h-[3rem] mt-[2rem]">
-                &copy; 2025 Derechos reservados | DRTechGroup, SRL | Creado por DRTechGroup
-            </p>
+
+      {/* Footer */}
+      <footer className="flex items-center justify-center bg-[#75512f] text-sm md:text-base text-white py-6 px-4 text-center">
+        <p>&copy; 2025 Derechos reservados | DRTechGroup, SRL | Creado por DRTechGroup</p>
+      </footer>
     </div>
   );
 }
