@@ -74,7 +74,7 @@ function NavBar(){
                                 <ChevronDownIcon className={`h-[1.5rem] w-[1.5rem] transform transition-transform duration-300 ml-1 ${isInmueblesOpen ? 'rotate-180' : ''} lg:group-hover:rotate-180`} />
                             </button>
 
-                            <ul className={`${isInmueblesOpen ? 'block' : 'hidden'} lg:hidden lg:group-hover:block lg:absolute lg:bg-gray-100 lg:shadow-md left-0 top-full rounded-lg z-10 w-48 py-2 bg-gray-50 mt-1`}>
+                            <ul className={`${isInmueblesOpen ? 'block' : 'hidden'} lg:hidden lg:group-hover:block lg:absolute lg:bg-gray-100 lg:shadow-md text-[1.5rem] left-0 top-full rounded-lg z-10 w-48 py-2 bg-gray-50 mt-1`}>
                                 <Link href="#" onClick={() => { setIsInmueblesOpen(false); pressButtonMenu(); }}><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2">Casas</li></Link>
                                 <Link href="#" onClick={() => { setIsInmueblesOpen(false); pressButtonMenu(); }}><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2">Apartamentos</li></Link>
                                 <Link href="#" onClick={() => { setIsInmueblesOpen(false); pressButtonMenu(); }}><li className="hover:bg-[#75512f] hover:text-[#ffffff] px-4 py-2">Edificios</li></Link>
