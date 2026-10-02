@@ -16,35 +16,38 @@ function NavBar(){
 
     return (
         <div className="mx-auto bg-white/80 lg:rounded-4xl lg:w-[90%] lg:fixed top-0 right-0 left-0 z-40 md:mt-[2rem] border border-[#75512f] shadow-lg">
-            <nav className="flex flex-col items-center justify-between py-4 px-6 lg:flex-row lg:mx-auto lg:relative lg:px-8">
+            <nav className="flex flex-col py-4 px-6 lg:flex-row lg:mx-auto lg:relative lg:px-8 lg:items-center lg:justify-between">
                 
-                {/* LOGOTIPO Y TÍTULO */}
-                <Link href="/" className="flex items-center text-[2rem] gap-[1rem] lg:text-[3rem] group">
-                    <Image
-                        src='/Carolina_Vende_Foto.png'
-                        alt="CarolinaVende"
-                        width={300}
-                        height={300}
-                        className="w-[8rem] lg:w-[10rem]"
-                    />
-                    <h1 className="font-semibold text-red-700">CarolinaVende</h1>
-
-                    {/* Tarjeta desplegable al hacer hover en desktop */}
-                    <div className="w-[70rem] absolute flex flex-col top-40 left-10 scale-0 group-hover:block group-hover:scale-100 z-90 bg-[#75512f] rounded-4xl px-[6rem] py-[3rem]">
-                        <div
-                            style={{backgroundImage : "url('/Carolina_Vende_Profile.png')"}}
-                            className="w-[45rem] h-[30rem] bg-no-repeat bg-cover mx-auto"
+                {/* CONTENEDOR SUPERIOR MÓVIL*/}
+                <div className="flex flex-row items-center justify-between w-full lg:w-auto">
+                    {/* LOGOTIPO Y TÍTULO */}
+                    <Link href="/" className="flex items-center text-[2rem] gap-[1rem] lg:text-[3rem] group relative">
+                        <Image
+                            src='/Carolina_Vende_Foto.png'
+                            alt="CarolinaVende"
+                            width={300}
+                            height={300}
+                            className="w-[8rem] lg:w-[10rem]"
                         />
-                        <p className="mt-[1.2rem] text-[2.5rem] text-center text-white font-bold">Inmobiliaria y constructora dedicada al desarrollo y venta de proyecto de bajo costo.</p>
-                        <p className="mt-[1.2rem] text-[1.6rem] text-center text-white ">Soy Milagros González, pero en el mundo inmobiliario me conocen como "Carolina Vende". Soy dominicana y, durante más de 45 años, me he dedicado con pasión a las ventas y el asesoramiento en este sector. Mi misión es guiar a cada cliente, brindándoles la mejor orientación para que logren su inversión ideal o encuentren el hogar perfecto que han soñado.</p>
-                    </div>
-                </Link>
+                        <h1 className="font-semibold text-red-700">CarolinaVende</h1>
 
-                {/* BOTÓN DE HAMBURGUESA (Solo visible en celular) */}
-                <div className="lg:hidden mt-4">
-                    <button onClick={pressButtonMenu} className="focus:outline-none p-2 bg-gray-100 rounded-lg border border-[#75512f]">
-                        <HiOutlineMenu className="w-[2.5rem] h-[2.5rem] text-black" />
-                    </button>
+                        {/* Tarjeta desplegable al hacer hover en desktop */}
+                        <div className="w-[70rem] absolute flex flex-col top-40 left-10 scale-0 group-hover:block group-hover:scale-100 z-90 bg-[#75512f] rounded-4xl px-[6rem] py-[3rem]">
+                            <div
+                                style={{backgroundImage : "url('/Carolina_Vende_Profile.png')"}}
+                                className="w-[45rem] h-[30rem] bg-no-repeat bg-cover mx-auto"
+                            />
+                            <p className="mt-[1.2rem] text-[2.5rem] text-center text-white font-bold">Inmobiliaria y constructora dedicada al desarrollo y venta de proyecto de bajo costo.</p>
+                            <p className="mt-[1.2rem] text-[1.6rem] text-center text-white ">Soy Milagros González, pero en el mundo inmobiliario me conocen como "Carolina Vende". Soy dominicana y, durante más de 45 años, me he dedicado con pasión a las ventas y el asesoramiento en este sector. Mi misión es guiar a cada cliente, brindándoles la mejor orientación para que logren su inversión ideal o encuentren el hogar perfecto que han soñado.</p>
+                        </div>
+                    </Link>
+
+                    {/* BOTÓN DE HAMBURGUESA */}
+                    <div className="lg:hidden">
+                        <button onClick={pressButtonMenu} className="focus:outline-none p-2 bg-gray-100 rounded-lg border border-[#75512f]">
+                            <HiOutlineMenu className="w-[2.5rem] h-[2.5rem] text-black" />
+                        </button>
+                    </div>
                 </div>
 
                 {/* CONTENEDOR DE NAVEGACIÓN Y CONTACTO */}
@@ -108,7 +111,6 @@ function NavBar(){
                         </li>
                     </ul>
 
-                    {/* TELÉFONOS Y CORREO (Corregido: `lg:ml-auto` para que en móvil esté centrado y en PC a la derecha) */}
                     <div className="flex flex-col lg:flex-row items-center text-[1.1rem] lg:gap-8 border-t lg:border-t-0 pt-4 lg:pt-0 border-gray-300 lg:ml-auto">
                         <div>
                             <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.2rem] h-[1.2rem] text-black"/> (809) 849-7680</p>

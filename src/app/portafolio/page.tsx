@@ -1,3 +1,4 @@
+/*** 
 'use client';
 import { useState } from "react";
 import ScaleIn from "@/components/ScaleIn";
@@ -88,7 +89,7 @@ export default function PortafolioPage() {
         <ScaleIn>
             <div className="w-full min-h-screen flex flex-col items-center justify-start px-4 pt-56 md:pt-72 pb-24">
                 
-                {/* Cabecera de la sección */}
+                {/* Cabecera de la sección *//*}
                 <div className="flex flex-col items-center text-center gap-5 max-w-5xl mx-auto mb-14 px-2">
                     <h2 className="text-4xl md:text-7xl font-extrabold text-[#75512f] leading-tight">
                         Nuestro Portafolio de Proyectos
@@ -98,7 +99,7 @@ export default function PortafolioPage() {
                     </p>
                 </div>
 
-                {/* Cuadrícula de Proyectos */}
+                {/* Cuadrícula de Proyectos *//*}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl w-full mx-auto px-4">
                     {projects.map((project) => (
                         <div 
@@ -133,12 +134,12 @@ export default function PortafolioPage() {
                     ))}
                 </div>
 
-                {/* Modal de Galería optimizado */}
+                {/* Modal de Galería optimizado *//*}
                 {selectedProject && (
                     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-2 md:p-6">
                         <div className="relative bg-white w-full max-w-5xl rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[96vh]">
                             
-                            {/* Cabecera del Modal */}
+                            {/* Cabecera del Modal *//*}
                             <div className="flex justify-between items-center bg-[#75512f] text-white px-6 py-3.5 flex-shrink-0">
                                 <div>
                                     <h3 className="text-xl md:text-2xl font-bold">{selectedProject.title}</h3>
@@ -152,7 +153,7 @@ export default function PortafolioPage() {
                                 </button>
                             </div>
 
-                            {/* Visor de Imagen Principal */}
+                            {/* Visor de Imagen Principal *//*}
                             <div className="relative flex-1 bg-black flex items-center justify-center min-h-[45vh] md:min-h-[55vh] max-h-[62vh] overflow-hidden">
                                 <img 
                                     src={selectedProject.images[activeImageIndex]} 
@@ -178,7 +179,7 @@ export default function PortafolioPage() {
                                 )}
                             </div>
 
-                            {/* Miniaturas (Thumbnails) con scroll horizontal ordenado */}
+                            {/* Miniaturas (Thumbnails) con scroll horizontal ordenado *//*}
                             {selectedProject.images.length > 1 && (
                                 <div className="flex gap-2.5 px-4 py-3 bg-gray-100 overflow-x-auto flex-shrink-0 justify-start md:justify-center scrollbar-thin">
                                     {selectedProject.images.map((img, idx) => (
@@ -194,6 +195,177 @@ export default function PortafolioPage() {
                             )}
 
                         </div>
+                    </div>
+                )}
+
+            </div>
+        </ScaleIn>
+    );
+}*/
+
+'use client';
+import { useState } from "react";
+import ScaleIn from "@/components/ScaleIn";
+import { FaImages, FaArrowLeft } from "react-icons/fa";
+
+// Definición de los proyectos con sus respectivas imágenes basadas en tu estructura en public/
+const projects = [
+    {
+        id: "brisas",
+        title: "Brisas",
+        subtitle: "Proyecto Residencial",
+        cover: "/Brisas/Brisas-1.jpeg",
+        images: [
+            "/Brisas/Brisas-1.jpeg",
+            "/Brisas/Brisas-2.jpeg",
+            "/Brisas/Brisas-3.jpeg",
+            "/Brisas/Brisas-4.jpeg",
+            "/Brisas/Brisas-5.jpeg",
+        ]
+    },
+    {
+        id: "cora-8",
+        title: "Cora-8",
+        subtitle: "Desarrollo Inmobiliario",
+        cover: "/Cora-8/Cora-8-1.jpeg",
+        images: [
+            "/Cora-8/Cora-8-1.jpeg",
+            "/Cora-8/Cora-8-2.jpeg",
+            "/Cora-8/Cora-8-3.jpeg",
+            "/Cora-8/Cora-8-4.jpeg",
+            "/Cora-8/Cora-8-5.jpeg",
+            "/Cora-8/Cora-8-6.jpeg",
+            "/Cora-8/Cora-8-7.jpeg",
+            "/Cora-8/Cora-8-8.jpeg",
+            "/Cora-8/Cora-8-9.jpeg",
+        ]
+    },
+    {
+        id: "don-persio",
+        title: "Don Persio",
+        subtitle: "Residencial Exclusivo",
+        cover: "/Don-Persio/Don-Persio-1.jpeg",
+        images: [
+            "/Don-Persio/Don-Persio-1.jpeg",
+        ]
+    },
+    {
+        id: "el-campito",
+        title: "El Campito",
+        subtitle: "Solares y Quintas",
+        cover: "/El-Campito/El-Campito-1.jpeg",
+        images: [
+            "/El-Campito/El-Campito-1.jpeg",
+            "/El-Campito/El-Campito-2.jpeg",
+            "/El-Campito/El-Campito-3.jpeg",
+            "/El-Campito/El-Campito-4.jpeg",
+            "/El-Campito/El-Campito-5.jpeg",
+        ]
+    }
+];
+
+export default function PortafolioPage() {
+    const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+
+    return (
+        <ScaleIn>
+            <div className="w-full min-h-screen flex flex-col items-center justify-start px-4 pt-56 md:pt-72 pb-24">
+                
+                {!selectedProject ? (
+                    <>
+                        {/* Cabecera de la sección */}
+                        <div className="flex flex-col items-center text-center gap-5 max-w-5xl mx-auto mb-14 px-2">
+                            <h2 className="text-4xl md:text-7xl font-extrabold text-[#75512f] leading-tight">
+                                Nuestro Portafolio de Proyectos
+                            </h2>
+                            <p className="text-lg md:text-2xl font-medium text-gray-700 max-w-4xl">
+                                Explora los desarrollos inmobiliarios más destacados. Haz clic en cualquier proyecto para ver todas las fotos en una sola página.
+                            </p>
+                        </div>
+
+                        {/* Cuadrícula de Proyectos Principales */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl w-full mx-auto px-4">
+                            {projects.map((project) => (
+                                <div 
+                                    key={project.id}
+                                    onClick={() => setSelectedProject(project)}
+                                    className="group relative bg-white border-2 border-[#75512f] rounded-3xl overflow-hidden shadow-xl cursor-pointer transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+                                >
+                                    <div className="relative h-80 md:h-[420px] w-full overflow-hidden bg-gray-100">
+                                        <img 
+                                            src={project.cover} 
+                                            alt={project.title}
+                                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
+                                        
+                                        <div className="absolute bottom-6 left-6 right-6 flex justify-between items-end text-white">
+                                            <div>
+                                                <span className="text-xs md:text-sm uppercase tracking-wider bg-[#75512f] px-4 py-1.5 rounded-full font-semibold">
+                                                    {project.subtitle}
+                                                </span>
+                                                <h3 className="text-3xl md:text-4xl font-bold mt-3 text-white">
+                                                    {project.title}
+                                                </h3>
+                                            </div>
+                                            <div className="flex items-center gap-2 bg-white/25 backdrop-blur-md px-4 py-2 rounded-full text-sm md:text-base font-semibold">
+                                                <FaImages />
+                                                <span>{project.images.length} fotos</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                ) : (
+                    /* Vista de detalle: Muestra todas las fotos del proyecto seleccionado en una sola página */
+                    <div className="max-w-6xl w-full mx-auto px-4 flex flex-col gap-8">
+                        
+                        {/* Botón para regresar al portafolio general */}
+                        <div>
+                            <button 
+                                onClick={() => setSelectedProject(null)}
+                                className="flex items-center gap-2 bg-[#75512f] text-white px-5 py-2.5 rounded-full font-semibold hover:bg-[#5e4024] transition-colors cursor-pointer shadow-md"
+                            >
+                                <FaArrowLeft /> Volver al portafolio
+                            </button>
+                        </div>
+
+                        {/* Encabezado del proyecto seleccionado */}
+                        <div className="bg-white border-2 border-[#75512f] rounded-3xl p-6 md:p-10 shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div>
+                                <span className="text-xs md:text-sm uppercase tracking-wider bg-[#75512f]/10 text-[#75512f] px-4 py-1.5 rounded-full font-bold">
+                                    {selectedProject.subtitle}
+                                </span>
+                                <h2 className="text-3xl md:text-5xl font-extrabold text-[#75512f] mt-3">
+                                    {selectedProject.title}
+                                </h2>
+                            </div>
+                            <div className="text-gray-600 font-semibold text-base md:text-lg bg-gray-100 px-5 py-2 rounded-2xl">
+                                Mostrando las {selectedProject.images.length} fotos disponibles
+                            </div>
+                        </div>
+
+                        {/* Cuadrícula con todas las fotos del proyecto */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                            {selectedProject.images.map((img, index) => (
+                                <div 
+                                    key={index} 
+                                    className="relative h-72 md:h-80 rounded-2xl overflow-hidden border-2 border-gray-200 shadow-md group bg-gray-100"
+                                >
+                                    <img 
+                                        src={img} 
+                                        alt={`${selectedProject.title} - Foto ${index + 1}`}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    />
+                                    <div className="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
+                                        {index + 1} / {selectedProject.images.length}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
                     </div>
                 )}
 
