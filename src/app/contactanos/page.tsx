@@ -168,6 +168,10 @@ function CitasPage() {
                 </form>
 
             </div>
+
+            <footer className="flex items-center justify-center bg-[#75512f] text-sm md:text-base text-white py-6 px-4 text-center">
+                <p>&copy; 2025 Derechos reservados | DRTechGroup, SRL | Creado por DRTechGroup</p>
+            </footer>
         </ScaleIn>
     );
 }

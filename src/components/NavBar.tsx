@@ -54,7 +54,7 @@ function NavBar(){
                 <div className={`flex flex-col w-full items-center gap-[2rem] mt-4 lg:mt-0 lg:flex lg:flex-row lg:w-auto lg:justify-between lg:items-center ${isOpen ? 'flex' : 'hidden lg:flex'}`}>
 
                     {/* OPCIONES DE NAVEGACIÓN */}
-                    <ul className="flex flex-col items-center text-center text-[1.3rem] gap-3 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:flex-row lg:gap-6">
+                    <ul className="flex flex-col items-center text-center text-[1.4rem] lg:text-[1.8rem] gap-3 lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:flex-row lg:gap-6">
                         <li>
                             <Link onClick={pressButtonMenu} href="/" className="relative font-semibold py-2 transition-colors duration-300 lg:hover:text-[#75512f] group">
                                 Inicio
@@ -95,8 +95,8 @@ function NavBar(){
                         <div className="hidden lg:block lg:w-[.15rem] lg:h-[1.5rem] lg:bg-[#75512f]"/>
 
                         <li>
-                            <Link onClick={pressButtonMenu} href="/contactanos" className="relative font-semibold py-2 transition-colors duration-300 lg:hover:text-[#75512f] group">
-                                Contactanos
+                            <Link onClick={pressButtonMenu} href="/portafolio" className="relative font-semibold py-2 transition-colors duration-300 lg:hover:text-[#75512f] group">
+                                Portafolio
                                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#75512f] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
                             </Link>
                         </li>
@@ -104,20 +104,20 @@ function NavBar(){
                         <div className="hidden lg:block lg:w-[.15rem] lg:h-[1.5rem] lg:bg-[#75512f]"/>
 
                         <li>
-                            <Link onClick={pressButtonMenu} href="/portafolio" className="relative font-semibold py-2 transition-colors duration-300 lg:hover:text-[#75512f] group">
-                                Portafolio
+                            <Link onClick={pressButtonMenu} href="/contactanos" className="relative font-semibold py-2 transition-colors duration-300 lg:hover:text-[#75512f] group">
+                                Contactanos
                                 <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#75512f] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
                             </Link>
                         </li>
                     </ul>
 
-                    <div className="flex flex-col lg:flex-row items-center text-[1.1rem] lg:gap-8 border-t lg:border-t-0 pt-4 lg:pt-0 border-gray-300 lg:ml-auto">
+                    <div className="flex flex-col lg:flex-row items-center text-[1.3rem] lg:gap-8 border-t lg:border-t-0 pt-4 lg:pt-0 border-gray-300 lg:ml-auto">
                         <div>
                             <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.2rem] h-[1.2rem] text-black"/> (809) 849-7680</p>
                             <p className="flex items-center gap-[.5rem]"> <HiPhone className="w-[1.2rem] h-[1.2rem] text-black"/> (809) 705-7318</p>
                         </div>
 
-                        <div className="flex items-center text-[1.2rem] mt-2 lg:mt-0">
+                        <div className="flex items-center text-[1.3rem] lg:text-[1.5rem] mt-2 lg:mt-0">
                             <HiMail className="h-[2rem] w-[2rem] mr-2"/>
                             <p>carolinavende@gmail.com</p>
                         </div>

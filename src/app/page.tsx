@@ -159,16 +159,16 @@ export default function Home() {
         <div className="flex flex-col w-full max-w-5xl gap-6 items-center justify-center text-black p-4 md:p-8">
           <div className="flex flex-col bg-[#d3bc93]/95 backdrop-blur-sm w-full rounded-3xl p-6 md:p-10 gap-6 items-center justify-center shadow-xl">
             <div className="flex flex-col text-center gap-2">
-              <h2 className="text-3xl md:text-5xl font-bold">Encuentra la casa de tus sueños</h2>
-              <p className="text-lg md:text-2xl font-medium text-gray-800">Casas, apartamentos y más en Bienes Raíces en venta.</p>
+              <h2 className="text-[2.2rem] md:text-[3rem] font-bold">Encuentra la casa de tus sueños</h2>
+              <p className="text-[1.5rem] md:text-[2rem] font-medium text-gray-800">Casas, apartamentos y más en Bienes Raíces en venta.</p>
             </div>
 
-            <form onSubmit={print} className="flex flex-col lg:flex-row items-center justify-center w-full gap-4 font-semibold text-base md:text-lg">
+            <form onSubmit={print} className="flex flex-col lg:flex-row items-center justify-center w-full gap-4 font-semibold text-[1.5rem] md:text-[2rem]">
               <div className="flex flex-col sm:flex-row items-center gap-2 w-full lg:w-auto">
                 <label htmlFor="city" className="lg:block">Ciudad:</label>
-                <select name="city" id="city" className="bg-[#75512f] text-white p-3 rounded-lg w-full sm:w-auto text-base">
+                <select name="city" id="city" className="bg-[#75512f] text-white p-3 rounded-lg w-full sm:w-auto text-[1.5rem]">
                   {ciudades.map((ciudad) => (
-                    <option key={ciudad} value={ciudad} className="bg-white text-black">
+                    <option key={ciudad} value={ciudad} className="bg-white text-black text-2xl">
                       {ciudad}
                     </option>
                   ))}
@@ -177,9 +177,9 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row items-center gap-2 w-full lg:w-auto">
                 <label htmlFor="Type" className="lg:block">Tipo:</label>
-                <select name="Type" id="Type" className="bg-[#75512f] text-white p-3 rounded-lg w-full sm:w-auto text-base">
+                <select name="Type" id="Type" className="bg-[#75512f] text-white p-3 rounded-lg w-full sm:w-auto text-[1.5rem]">
                   {tipos.map((tipo) => (
-                    <option key={tipo} value={tipo} className="bg-white text-black">
+                    <option key={tipo} value={tipo} className="bg-white text-black text-2xl">
                       {tipo}
                     </option>
                   ))}
@@ -188,7 +188,7 @@ export default function Home() {
 
               <button
                 type="submit"
-                className="w-full lg:w-auto px-8 py-3 bg-[#75512f] text-white rounded-lg hover:bg-[#5c3f25] transition-colors text-base"
+                className="w-full lg:w-auto px-8 py-3 bg-[#75512f] text-white rounded-lg hover:bg-[#5c3f25] transition-colors text-[1.5rem]"
               >
                 Buscar
               </button>
@@ -208,8 +208,8 @@ export default function Home() {
         </div>
       </div>
       {/* Final de encabezado con el Search */}
-
-      {/* Propiedades VIP */}
+{/*
+      {/* Propiedades VIP 
       <main className="flex flex-col w-[90%] max-w-7xl items-center mx-auto my-16">
         <h2 className="text-3xl md:text-5xl font-light my-8 text-center">
           Explora las mejores propiedades en venta.
@@ -282,9 +282,9 @@ export default function Home() {
           ))}
         </div>
       </main>
-      {/* Final de Propiedades VIP */}
+      {/* Final de Propiedades VIP 
 
-      {/* Testimoniales */}
+      {/* Testimoniales 
       <section className="flex flex-col w-[90%] max-w-5xl items-center mx-auto my-20 px-4">
         <h2 className="text-3xl md:text-5xl font-light mb-12 text-center">Lo que dicen nuestros clientes</h2>
 
@@ -320,6 +320,7 @@ export default function Home() {
           ))}
         </div>
       </section>
+      /*}
 
       {/* Footer */}
       <footer className="flex items-center justify-center bg-[#75512f] text-sm md:text-base text-white py-6 px-4 text-center">
