@@ -8,12 +8,12 @@ function NosotrosPage(){
                 <div className="flex flex-col items-center gap-8 md:gap-10 w-full max-w-5xl mx-auto text-center">
 
                     {/* Imagen principal de Carolina con un tamaño adecuado para laptop */}
-                    <div className="relative w-52 h-52 md:w-80 md:h-80 flex-shrink-0">
+                    <div className="relative w-70 h-90 md:w-80 md:h-100 flex-shrink-0">
                         <Image 
-                            src={"/Carolina_Vende_Foto.png"} 
+                            src={"/Carolina-Vende-new.jpeg"} 
                             alt="Carolina Vende" 
                             fill
-                            sizes="(max-width: 768px) 208px, 320px"
+                            sizes="(max-width: 768px) 360px, 660px"
                             className="rounded-full border-[6px] border-black bg-gray-200 object-cover shadow-2xl"
                             priority
                         />
