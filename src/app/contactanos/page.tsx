@@ -4,7 +4,6 @@ import ScaleIn from "@/components/ScaleIn";
 import { useState } from "react";
 
 function CitasPage() {
-
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -15,6 +14,11 @@ function CitasPage() {
         message: ""
     });
 
+    // Estados para el modal de respuesta
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalMessage, setModalMessage] = useState("");
+    const [isSuccess, setIsSuccess] = useState(false);
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -22,15 +26,62 @@ function CitasPage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const res = await fetch("/apis/guardar_formulario", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-        });
+        try {
+            const res = await fetch("/apis/guardar_formulario", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
 
-        const data = await res.json();
-        alert(data.message);
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.message || "Error al guardar en la base de datos");
+            }
+
+            // Éxito: se guardó correctamente para Carolina Vende (ID 3)
+            setModalMessage("¡Cita guardada correctamente! Nuestra oficina se pondrá en contacto contigo pronto.");
+            setIsSuccess(true);
+            setIsModalOpen(true);
+
+            // Limpiar formulario
+            setFormData({
+                firstName: "",
+                lastName: "",
+                phone: "",
+                email: "",
+                appointmentDate: "",
+                type: "",
+                message: ""
+            });
+
+        } catch (error: any) {
+            // Error
+            setModalMessage("Error al enviar el formulario. Por favor, intenta de nuevo.\n" + (error.message || ""));
+            setIsSuccess(false);
+            setIsModalOpen(true);
+        }
     };
+
+    const formatPhoneNumber = (value: string) => {
+        // Elimina todo lo que no sea número
+        const numbers = value.replace(/\D/g, "");
+        
+        // Limita a 10 dígitos máximo
+        const trimmed = numbers.slice(0, 10);
+
+        // Formatea según la cantidad de dígitos ingresados
+        if (trimmed.length < 4) return trimmed;
+        if (trimmed.length < 7) return `(${trimmed.slice(0, 3)})-${trimmed.slice(3)}`;
+        return `(${trimmed.slice(0, 3)})-${trimmed.slice(3, 6)}-${trimmed.slice(6)}`;
+    };
+
+    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const formattedPhone = formatPhoneNumber(e.target.value);
+        setFormData({ ...formData, phone: formattedPhone });
+    };
+
+    const today = new Date().toISOString().split('T')[0];
 
     return (
         <ScaleIn>
@@ -50,7 +101,7 @@ function CitasPage() {
                 {/* Formulario */}
                 <form 
                     onSubmit={handleSubmit} 
-                    className="flex flex-col gap-6 w-full max-w-3xl border-2 font-bold text-[#75512f] border-[#75512f] bg-white p-6 md:p-10 rounded-2xl shadow-lg text-xl md:text-2xl"
+                    className="flex flex-col gap-6 w-full max-w-6xl border-2 font-bold text-[#75512f] border-[#75512f] bg-white p-6 md:p-10 rounded-2xl shadow-lg text-xl md:text-2xl"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
@@ -61,6 +112,7 @@ function CitasPage() {
                                 type="text" 
                                 id="firstName"
                                 name="firstName"
+                                value={formData.firstName}
                                 onChange={handleChange}
                                 placeholder="María" 
                                 className="rounded-full border border-gray-300 py-2 px-4 text-black font-normal focus:outline-none focus:border-[#75512f]"
@@ -74,6 +126,7 @@ function CitasPage() {
                                 type="text" 
                                 id="lastName"
                                 name="lastName"
+                                value={formData.lastName}
                                 onChange={handleChange}
                                 placeholder="Rosario" 
                                 className="rounded-full border border-gray-300 py-2 px-4 text-black font-normal focus:outline-none focus:border-[#75512f]"
@@ -87,8 +140,10 @@ function CitasPage() {
                                 type="tel"
                                 id="phone"
                                 name="phone"
-                                onChange={handleChange} 
-                                placeholder="8096760000" 
+                                value={formData.phone}
+                                onChange={handlePhoneChange} 
+                                placeholder="(809)-676-0000" 
+                                maxLength={14}
                                 className="rounded-full border border-gray-300 py-2 px-4 text-black font-normal focus:outline-none focus:border-[#75512f]"
                             />
                         </div>
@@ -100,6 +155,7 @@ function CitasPage() {
                                 type="email" 
                                 id="email"
                                 name="email"
+                                value={formData.email}
                                 onChange={handleChange}
                                 placeholder="ejemplo@ejemplo.com" 
                                 className="rounded-full border border-gray-300 py-2 px-4 text-black font-normal focus:outline-none focus:border-[#75512f]"
@@ -110,13 +166,13 @@ function CitasPage() {
                             <label htmlFor="tipo-consulta">Tipo de cita*</label>
                             <select 
                                 name="type" 
+                                value={formData.type}
                                 onChange={handleChange} 
                                 id="tipo-consulta" 
                                 className="border border-gray-300 rounded-full py-2 px-4 text-black font-normal bg-white focus:outline-none focus:border-[#75512f]" 
-                                defaultValue="default"
                                 required
                             >
-                                <option value="default" disabled hidden>--Seleccione una opción--</option>
+                                <option value="" disabled hidden>--Seleccione una opción--</option>
                                 <option value="compra">Compra</option>
                                 <option value="alquiler">Alquiler</option>
                                 <option value="venta">Venta</option>
@@ -133,6 +189,8 @@ function CitasPage() {
                                 type="date" 
                                 id="appointmentDate"
                                 name="appointmentDate"
+                                min={today}
+                                value={formData.appointmentDate}
                                 onChange={handleChange}
                                 className="rounded-full border border-gray-300 py-2 px-4 text-black font-normal focus:outline-none focus:border-[#75512f]"
                             />
@@ -146,6 +204,7 @@ function CitasPage() {
                                 id="message"
                                 name="message" 
                                 required
+                                value={formData.message}
                                 onChange={handleChange} 
                                 rows={4} 
                                 placeholder="Escribe aquí los detalles de tu cita..."
@@ -168,6 +227,30 @@ function CitasPage() {
                 </form>
 
             </div>
+
+            {/* Modal Nativo de Respuesta */}
+            {isModalOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-xs px-4">
+                    <div className="w-full max-w-md flex flex-col justify-center items-center bg-white rounded-2xl p-6 sm:p-8 gap-6 shadow-2xl">
+                        <p className="text-center text-lg md:text-xl font-bold leading-relaxed whitespace-pre-line text-gray-800">
+                            {modalMessage}
+                        </p>
+
+                        <button
+                            type="button"
+                            className="bg-[#75512f] text-white py-2.5 px-8 rounded-lg text-base sm:text-lg font-semibold hover:bg-[#583c23] transition-colors cursor-pointer"
+                            onClick={() => {
+                                setIsModalOpen(false);
+                                if (isSuccess) {
+                                    window.location.reload(); // Recarga limpia si se guardó correctamente
+                                }
+                            }}
+                        >
+                            Ok
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <footer className="flex items-center justify-center bg-[#75512f] text-sm md:text-base text-white py-6 px-4 text-center">
                 <p>&copy; 2025 Derechos reservados | DRTechGroup, SRL | Creado por DRTechGroup</p>
